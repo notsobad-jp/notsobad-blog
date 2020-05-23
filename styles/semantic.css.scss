@@ -1,0 +1,15 @@
+.ui.container {
+  @apply mx-auto;
+}
+
+.ui.button {
+  @apply inline-block cursor-pointer font-medium py-2 px-5 rounded bg-gray-500 bg-opacity-50 text-gray-700;
+
+  &.blue {
+    @apply bg-blue-600 text-white;
+  }
+
+  &:hover {
+    @apply bg-opacity-75;
+  }
+}
