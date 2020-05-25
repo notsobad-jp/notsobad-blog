@@ -14,7 +14,13 @@ export default function Home({ entries }) {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
             </svg>
-            <span className="ml-3 text-xl">鍾馗さんぽ</span>
+            <span className="ml-3 text-xl">
+              <ruby>
+                鍾馗
+                <rt>しょうき</rt>
+              </ruby>
+              さんぽ
+            </span>
           </a>
           <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
             <a className="mr-5 hover:text-gray-900">
@@ -36,7 +42,12 @@ export default function Home({ entries }) {
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
           <div className="text-center lg:w-2/3 w-full">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-              見上げれば、そこにはいつも鍾馗さん。
+              見上げれば、そこにはいつも
+              <ruby>
+                鍾馗
+                <rt>しょうき</rt>
+              </ruby>
+              さん。
             </h1>
             <p className="mb-8 leading-relaxed">
               鍾馗さんぽは、国内最大級の鍾馗さん情報サイトです。
@@ -52,7 +63,11 @@ export default function Home({ entries }) {
           </div>
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-              鍾馗さんは、
+              <ruby>
+                鍾馗
+                <rt>しょうき</rt>
+              </ruby>
+              さんは、
               <br className="inline-block lg:hidden" />
               京町家の守り神
             </h1>
@@ -77,7 +92,12 @@ export default function Home({ entries }) {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              まだ見ぬ鍾馗さんを求めて
+              まだ見ぬ
+              <ruby>
+                鍾馗
+                <rt>しょうき</rt>
+              </ruby>
+              さんを求めて
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
               現存する鍾馗さんはおよそ3,000体以上とも言われますが、なかには非常に珍しいものも存在します。
@@ -163,7 +183,12 @@ export default function Home({ entries }) {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              もっと知りたい鐘馗さんの世界
+              もっと知りたい
+              <ruby>
+                鍾馗
+                <rt>しょうき</rt>
+              </ruby>
+              さんの世界
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
               とりあえずこれだけ知っていればあなたも立派な鍾馗ニスト。
@@ -233,7 +258,11 @@ export default function Home({ entries }) {
         <div className="container px-5 py-24 mx-auto flex">
           <div className="flex flex-col text-center w-full mb-20 relative z-10">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              鍾馗さんぽマップ公開中
+              <ruby>
+                鍾馗
+                <rt>しょうき</rt>
+              </ruby>
+              さんぽマップ公開中
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
               鍾馗さんぽ運営が集めた鍾馗さんマップも公開中。
@@ -305,7 +334,13 @@ export default function Home({ entries }) {
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
-              <span className="ml-3 text-xl">鍾馗さんぽ</span>
+              <span className="ml-3 text-xl">
+                <ruby>
+                  鍾馗
+                  <rt>しょうき</rt>
+                </ruby>
+                さんぽ
+                </span>
             </a>
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
               © 2020
