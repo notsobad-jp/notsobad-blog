@@ -26,9 +26,12 @@ export default function Home({ entries }) {
                   <span className="mt-1 text-gray-900 font-bold">{ formatDate(item.fields.date) }</span>
                 </div>
                 <div className="md:flex-grow">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-2">{ item.fields.title }</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">{ item.fields.title }</h2>
+                  { item.fields.image &&
+                    <img src={ item.fields.image } alt={ item.fields.title } className='mb-4' />
+                  }
                   <div className="leading-relaxed">
-                    <ReactMarkdown source={item.fields.excerpt} />
+                    <ReactMarkdown source={ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } />
                   </div>
                   <a className="text-indigo-500 inline-flex items-center mt-4">Read More
                     <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
