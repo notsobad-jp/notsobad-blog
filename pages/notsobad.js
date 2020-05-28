@@ -11,7 +11,7 @@ export default function Home({ entries }) {
       <section class="text-gray-700 body-font">
         <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
           <h1>
-            <img class="lg:w-3/6 md:w-4/6 w-6/6 mb-10 object-cover object-center rounded mx-auto" alt="NOT SO BAD" src="/images/logo@2x.png" />
+            <img class="lg:w-3/6 md:w-4/6 w-6/6 mb-10 object-cover object-center rounded mx-auto" alt="NOT SO BAD" src="/images/logo.png" />
           </h1>
           <div class="text-center lg:w-2/3 w-full">
             <p class="title-font sm:text-xl text-3xl mb-4 text-gray-900">Towards a not so bad world.</p>
