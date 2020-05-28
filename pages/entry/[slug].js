@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
-import { getAllPostIds, getPostData } from './../lib/posts'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 
 export default function Home({ entries }) {
   return (
@@ -20,30 +20,6 @@ export default function Home({ entries }) {
 
       <section className="text-gray-700 body-font overflow-hidden break-all">
         <div className="container px-5 pb-24 mx-auto max-w-screen-lg">
-          <div className="-my-8">
-            { entries.items.map((item) => (
-              <div className="py-12 flex flex-wrap md:flex-no-wrap" key={ item.sys.id }>
-                <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                  <span className="mt-1 text-gray-900 font-bold">{ formatDate(item.fields.date) }</span>
-                </div>
-                <div className="md:flex-grow">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">{ item.fields.title }</h2>
-                  { item.fields.image &&
-                    <img src={ item.fields.image } alt={ item.fields.title } className='mb-4' />
-                  }
-                  <div className="leading-relaxed">
-                    <ReactMarkdown source={ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } />
-                  </div>
-                  <a className="text-indigo-500 inline-flex items-center mt-4">Read More
-                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            )) }
-          </div>
         </div>
       </section>
 
@@ -74,30 +50,19 @@ function formatDate(dateStr) {
   return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
 }
 
+export async function getStaticPaths() {
+  const paths = getAllPostIds()
+  return {
+    paths,
+    fallback: false
+  }
+}
+
 export async function getStaticProps(context) {
-  const client = require('contentful').createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-  })
-
-  const paths = await getAllPostIds();
-  console.log(paths);
-  console.log('hoge');
-
-
-  const entries = await client.getEntries({
-     content_type: 'post',
-     order: '-fields.date',
-     limit: 5,
-   })
-  .then(function (entries) {
-    const items = entries.items;
-    return { items }
-  })
-
+  const postData = getPostData(params.id)
   return {
     props: {
-      entries,
-    },
+      postData
+    }
   }
 }
