@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
 export default function Home({ entries }) {
   return (
@@ -61,6 +61,21 @@ export default function Home({ entries }) {
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
+}
+
+export async function getStaticPaths() {
+  // const paths = await getAllPostSlugs();
+  const paths = [
+    {
+      params: {
+        page: ["2"]
+      }
+    }
+  ]
+  return {
+    paths,
+    fallback: false
+  }
 }
 
 export async function getStaticProps({params}) {
