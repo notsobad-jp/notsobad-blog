@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import { getAllPostSlugs, getPostData } from '../../lib/posts'
 
@@ -12,7 +13,11 @@ export default function Home({ entry }) {
 
       <section className="text-gray-700 body-font">
         <div className="container px-5 md:px-24 p-5 md:pb-12 mx-auto max-w-screen-lg">
-          <h1 className="text-xl font-bold title-font text-gray-900 mb-4 inline-block border-b-4 border-gray-900">NOT SO BAD なブログ</h1>
+          <h1 className="text-xl font-bold title-font text-gray-900 mb-4 inline-block border-b-4 border-gray-900">
+            <Link href='/'>
+              <a>NOT SO BAD なブログ</a>
+            </Link>
+          </h1>
           <h2 className="text-xs text-gray-600 tracking-widest font-medium title-font">ぼっちスタートアップが日々がんばっています。</h2>
         </div>
       </section>
