@@ -21,12 +21,12 @@ export default function Home({ entries }) {
                 </div>
                 <div className="md:flex-grow">
                   <h2 className="text-xl md:text-2xl font-bold text-gray-900 title-font mb-4">
-                    <Link href={`/entry/${ item.fields.slug }`}>
+                    <Link href={`/blog/entry/${ item.fields.slug }`}>
                       <a>{ item.fields.title }</a>
                     </Link>
                   </h2>
                   { item.fields.image &&
-                    <Link href={`/entry/${ item.fields.slug }`}>
+                    <Link href={`/blog/entry/${ item.fields.slug }`}>
                       <a><img src={ item.fields.image } alt={ item.fields.title } className='mb-4' /></a>
                     </Link>
                   }
@@ -34,7 +34,7 @@ export default function Home({ entries }) {
                     <ReactMarkdown source={ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } />
                   </div>
 
-                  <Link href={`/entry/${ item.fields.slug }`}>
+                  <Link href={`/blog/entry/${ item.fields.slug }`}>
                     <a className="text-indigo-500 inline-flex items-center mt-4">Read More
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14"></path>
@@ -61,21 +61,6 @@ export default function Home({ entries }) {
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
-}
-
-export async function getStaticPaths() {
-  // const paths = await getAllPostSlugs();
-  const paths = [
-    {
-      params: {
-        page: ["2"]
-      }
-    }
-  ]
-  return {
-    paths,
-    fallback: false
-  }
 }
 
 export async function getStaticProps({params}) {

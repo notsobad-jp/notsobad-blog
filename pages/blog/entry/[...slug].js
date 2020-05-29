@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import { getAllPostSlugs, getPostData } from '../../lib/posts'
-import Layout from '../../components/layout'
+import { getAllPostSlugs, getPostData } from '../../../lib/posts'
+import Layout from '../../../components/layout'
 
 export default function Home({ entry }) {
   return (
