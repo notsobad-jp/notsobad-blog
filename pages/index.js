@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
-import { getAllPostIds, getPostData } from './../lib/posts'
 
 export default function Home({ entries }) {
   return (
@@ -11,15 +10,15 @@ export default function Home({ entries }) {
       </Head>
 
       <section className="text-gray-700 body-font">
-        <div className="container px-5 py-12 md:py-24 mx-auto max-w-screen-lg">
-          <h1 className="md:text-2xl text-xl font-bold title-font text-gray-900 mb-4 inline-block border-b-4 border-gray-900">NOT SO BAD なブログ</h1>
+        <div className="container px-5 md:px-24 p-5 md:pb-12 mx-auto max-w-screen-lg">
+          <h1 className="text-xl font-bold title-font text-gray-900 mb-4 inline-block border-b-4 border-gray-900">NOT SO BAD なブログ</h1>
           <h2 className="text-xs text-gray-600 tracking-widest font-medium title-font">ぼっちスタートアップが日々がんばっています。</h2>
         </div>
       </section>
 
 
       <section className="text-gray-700 body-font overflow-hidden break-all">
-        <div className="container px-5 pb-24 mx-auto max-w-screen-lg">
+        <div className="container px-5 md:px-24 pb-24 mx-auto max-w-screen-lg">
           <div className="-my-8">
             { entries.items.map((item) => (
               <div className="py-12 flex flex-wrap md:flex-no-wrap" key={ item.sys.id }>
@@ -27,7 +26,7 @@ export default function Home({ entries }) {
                   <span className="mt-1 text-gray-900 font-bold">{ formatDate(item.fields.date) }</span>
                 </div>
                 <div className="md:flex-grow">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">{ item.fields.title }</h2>
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 title-font mb-4">{ item.fields.title }</h2>
                   { item.fields.image &&
                     <img src={ item.fields.image } alt={ item.fields.title } className='mb-4' />
                   }
@@ -47,11 +46,9 @@ export default function Home({ entries }) {
         </div>
       </section>
 
-
-
       <footer className="text-gray-700 body-font">
         <div className="bg-gray-200">
-          <div className="container mx-auto py-6 px-5 flex flex-wrap flex-col sm:flex-row max-w-screen-lg">
+          <div className="container mx-auto py-6 px-5 md:px-24 flex flex-wrap flex-col sm:flex-row max-w-screen-lg">
             <p className="text-gray-500 text-sm text-center sm:text-left">
               <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">© 2020 NOT SO BAD, LLC.</a>
             </p>
@@ -69,6 +66,7 @@ export default function Home({ entries }) {
   )
 }
 
+
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
@@ -79,11 +77,6 @@ export async function getStaticProps(context) {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   })
-
-  const paths = await getAllPostIds();
-  console.log(paths);
-  console.log('hoge');
-
 
   const entries = await client.getEntries({
      content_type: 'post',
