@@ -24,14 +24,37 @@ export default function Entry({ entry }) {
                 { entry.image &&
                   <img src={ entry.image } alt={ entry.title } className='mb-4' />
                 }
-                <div className="leading-relaxed">
-                  <ReactMarkdown source={ entry.content.replace(/!\[f:id:o_tomomichi.*?\)/, '') } />
+                <div id='mainText' className="leading-relaxed">
+                  <ReactMarkdown source={ entry.content.replace(/!\[f:id:o_tomomichi.*?\)/, '') } escapeHtml={ false } />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+      <style global jsx>{`
+        #mainText h1, #mainText h2, #mainText h3, #mainText h4, #mainText h5, #mainText h6 {
+          font-weight: 700;
+          margin: 2rem auto;
+        }
+        #mainText h1 { font-size: 1.875rem; }
+        #mainText h2 { font-size: 1.5rem; }
+        #mainText h3 { font-size: 1.25rem; }
+        #mainText h4, h5, h6 { font-size: 1.25rem; }
+        #mainText p { margin: 1.5rem auto; }
+        #mainText hr { margin: 1.5rem auto; }
+        #mainText a {
+          color: #3182CE;
+          text-decoration: underline;
+        }
+        #mainText ul {
+          margin-left: 1.5rem;
+          list-style-type: disc;
+        }
+        #mainText ul li { line-height: 1.75rem; }
+      `}</style>
     </Layout>
   )
 }
