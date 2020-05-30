@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import Layout from '../../components/layout'
+import Layout from '../../../components/layout'
+import { getAllPostSlugs } from '../../../lib/utilities'
 
-export default function Home({ entries }) {
+export default function Home({ entries, page, hasNextPage }) {
   return (
     <Layout>
       <Head>
@@ -49,8 +50,14 @@ export default function Home({ entries }) {
         </div>
 
         <div className="container px-5 md:px-24 pb-24 mx-auto max-w-screen-lg text-center">
-          <Link href={`/blog?page=1`}><a className="pr-8 md:pr-16">前のページ</a></Link>
-          <Link href={`/blog?page=2`}><a>次のページ</a></Link>
+          { page && page > 1 &&
+            <Link href={ (page == 2) ? '/blog' : `/blog/page/${page - 1}`}>
+              <a className="pr-8 md:pr-16">前のページ</a>
+            </Link>
+          }
+          { hasNextPage &&
+            <Link href={`/blog/page/${page + 1}`}><a>次のページ</a></Link>
+          }
         </div>
       </section>
     </Layout>
@@ -64,18 +71,44 @@ function formatDate(dateStr) {
 }
 
 
+export async function getStaticPaths() {
+  const perPage = 5;
+  const slugs = await getAllPostSlugs();
+  const pageCount = Math.ceil(slugs.length/perPage);
+
+  let paths = [];
+  for(let i = 2; i <= pageCount; i++) {
+    paths.push({
+      params: {
+        page: String(i)
+      }
+    });
+  }
+
+  return {
+    paths,
+    fallback: false
+  }
+}
+
 export async function getStaticProps({params}) {
   const client = require('contentful').createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   })
 
+  const page = Number(params.page) || 1;
+  const perPage = 5;
+  let hasNextPage = true;
+
   const entries = await client.getEntries({
      content_type: 'post',
      order: '-fields.date',
-     limit: 5,
+     skip: (page - 1) * perPage,
+     limit: perPage,
    })
   .then(function (entries) {
+    if(entries.skip + entries.limit >= entries.total) { hasNextPage = false; }
     const items = entries.items;
     return { items }
   })
@@ -83,6 +116,8 @@ export async function getStaticProps({params}) {
   return {
     props: {
       entries,
+      page: page,
+      hasNextPage: hasNextPage,
     },
   }
 }
