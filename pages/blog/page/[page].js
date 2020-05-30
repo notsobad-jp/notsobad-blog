@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import Layout from '../../../components/layout'
 import { getAllPostSlugs } from '../../../lib/utilities'
 
-export default function Home({ entries, page, hasNextPage }) {
+export default function Index({ entries, page, hasNextPage }) {
   return (
     <Layout>
       <Head>
@@ -97,7 +97,7 @@ export async function getStaticProps({params}) {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   })
 
-  const page = Number(params.page) || 1;
+  const page = params ? Number(params.page) : 1;
   const perPage = 5;
   let hasNextPage = true;
 

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Home({ entries }) {
+export default function Shoki({ entries }) {
   return (
     <div className='bg-base'>
       <Head>

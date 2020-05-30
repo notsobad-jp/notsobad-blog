@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import Layout from '../../../components/layout'
 import { getAllPostSlugs, getPostData } from '../../../lib/utilities'
 
-export default function Home({ entry }) {
+export default function Entry({ entry }) {
   return (
     <Layout>
       <Head>
