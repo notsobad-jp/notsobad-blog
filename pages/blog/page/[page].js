@@ -21,7 +21,7 @@ export default function Index({ entries, page, hasNextPage }) {
                   <span className="mt-1 text-gray-900 font-bold">{ formatDate(item.fields.date) }</span>
                 </div>
                 <div className="md:flex-grow">
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 title-font mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">
                     <Link href={`/blog/entry/${ item.fields.slug }`}>
                       <a>{ item.fields.title }</a>
                     </Link>

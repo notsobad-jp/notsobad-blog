@@ -5,6 +5,15 @@ import Layout from '../../../components/layout'
 import { getAllPostSlugs, getPostData, formatDate } from '../../../lib/utilities'
 
 export default function Entry({ entry }) {
+  /* markdown内のタグをclass付きで出力する（styled-jsxが適用されないので。。） */
+  const renderers = {
+    heading: props => <h class={`font-bold inline-block my-4 md:my-8 ${headingClass(props.level)}`}>{ props.children }</h>,
+    list: props => <ul class='text-left list-disc ml-6'>{props.children}</ul>,
+    listItem: props => <li class='leading-8'>{props.children}</li>,
+    paragraph: props => <p class='my-6'>{ props.children }</p>,
+    link: props => <a href={props.href} target="_blank" class='text-blue-600 underline'>{ props.children }</a>,
+  };
+
   return (
     <Layout>
       <Head>
@@ -19,42 +28,19 @@ export default function Entry({ entry }) {
               <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                 <span className="mt-1 text-gray-900 font-bold">{ formatDate(entry.date) }</span>
               </div>
-              <div className="md:flex-grow">
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900 title-font mb-4">{ entry.title }</h2>
+              <div className="flex-grow">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">{ entry.title }</h2>
                 { entry.image &&
                   <img src={ entry.image } alt={ entry.title } className='mb-4' />
                 }
                 <div id='mainText' className="leading-relaxed">
-                  <ReactMarkdown source={ entry.content.replace(/!\[f:id:o_tomomichi.*?\)/, '') } escapeHtml={ false } />
+                  <ReactMarkdown source={ entry.content.replace(/!\[f:id:o_tomomichi.*?\)/, '') } renderers={ renderers } />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
-      <style global jsx>{`
-        #mainText h1, #mainText h2, #mainText h3, #mainText h4, #mainText h5, #mainText h6 {
-          font-weight: 700;
-          margin: 2rem auto;
-        }
-        #mainText h1 { font-size: 1.875rem; }
-        #mainText h2 { font-size: 1.5rem; }
-        #mainText h3 { font-size: 1.25rem; }
-        #mainText h4, h5, h6 { font-size: 1.25rem; }
-        #mainText p { margin: 1.5rem auto; }
-        #mainText hr { margin: 1.5rem auto; }
-        #mainText a {
-          color: #3182CE;
-          text-decoration: underline;
-        }
-        #mainText ul {
-          margin-left: 1.5rem;
-          list-style-type: disc;
-        }
-        #mainText ul li { line-height: 1.75rem; }
-      `}</style>
     </Layout>
   )
 }
@@ -74,5 +60,18 @@ export async function getStaticProps({params}) {
     props: {
       entry
     }
+  }
+}
+
+function headingClass(level) {
+  switch (level) {
+    case 1:
+      return 'text-3xl'
+    case 2:
+      return 'text-2xl'
+    case 3:
+      return 'text-xl'
+    default:
+      return 'text-lg'
   }
 }
