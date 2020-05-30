@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../../../components/layout'
-import { getAllPostSlugs } from '../../../lib/utilities'
+import { getAllPostSlugs, formatDate } from '../../../lib/utilities'
 
 export default function Index({ entries, page, hasNextPage }) {
   return (
@@ -47,17 +47,22 @@ export default function Index({ entries, page, hasNextPage }) {
               </div>
             )) }
           </div>
-        </div>
 
-        <div className="container px-5 md:px-24 pb-24 mx-auto max-w-screen-lg text-center">
-          { page && page > 1 &&
-            <Link href={ (page == 2) ? '/blog' : `/blog/page/${page - 1}`}>
-              <a className="pr-8 md:pr-16">前のページ</a>
-            </Link>
-          }
-          { hasNextPage &&
-            <Link href={`/blog/page/${page + 1}`}><a>次のページ</a></Link>
-          }
+          <div className="py-12 flex flex-wrap md:flex-no-wrap">
+            <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"></div>
+            <div className="md:flex-grow">
+              <div className="inline-block w-1/2 text-left">
+                { page && page > 1 &&
+                  <Link href={ (page == 2) ? '/blog' : `/blog/page/${page - 1}`}><a>前のページ</a></Link>
+                }
+              </div>
+              <div className="inline-block w-1/2 text-right">
+                { hasNextPage &&
+                  <Link href={`/blog/page/${page + 1}`}><a>次のページ</a></Link>
+                }
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>
@@ -65,14 +70,9 @@ export default function Index({ entries, page, hasNextPage }) {
 }
 
 
-function formatDate(dateStr) {
-  const date = new Date(dateStr);
-  return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
-}
-
+const perPage = 10;
 
 export async function getStaticPaths() {
-  const perPage = 5;
   const slugs = await getAllPostSlugs();
   const pageCount = Math.ceil(slugs.length/perPage);
 
@@ -98,7 +98,6 @@ export async function getStaticProps({params}) {
   })
 
   const page = params ? Number(params.page) : 1;
-  const perPage = 5;
   let hasNextPage = true;
 
   const entries = await client.getEntries({

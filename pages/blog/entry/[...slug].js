@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../../../components/layout'
-import { getAllPostSlugs, getPostData } from '../../../lib/utilities'
+import { getAllPostSlugs, getPostData, formatDate } from '../../../lib/utilities'
 
 export default function Entry({ entry }) {
   return (
@@ -36,11 +36,6 @@ export default function Entry({ entry }) {
   )
 }
 
-
-function formatDate(dateStr) {
-  const date = new Date(dateStr);
-  return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
-}
 
 export async function getStaticPaths() {
   const paths = await getAllPostSlugs();
