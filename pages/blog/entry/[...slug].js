@@ -7,7 +7,7 @@ import { getAllPostSlugs, getPostData, formatDate } from '../../../lib/utilities
 export default function Entry({ entry }) {
   /* markdown内のタグをclass付きで出力する（styled-jsxが適用されないので。。） */
   const renderers = {
-    heading: props => <h className={`font-bold inline-block my-4 md:my-8 ${headingClass(props.level)}`}>{ props.children }</h>,
+    heading: props => renderHeading(props),
     list: props => <ul className='text-left list-disc ml-6'>{props.children}</ul>,
     listItem: props => <li className='leading-8'>{props.children}</li>,
     paragraph: props => <p className='my-6'>{ props.children }</p>,
@@ -70,15 +70,18 @@ export async function getStaticProps({params}) {
   }
 }
 
-function headingClass(level) {
-  switch (level) {
+function renderHeading(props) {
+  const baseClass = "font-bold inline-block my-4 md:my-8";
+  switch (props.level) {
     case 1:
-      return 'text-3xl'
+      return <h1 className={`${baseClass} text-3xl`}>{ props.children }</h1>
     case 2:
-      return 'text-2xl'
+      return <h2 className={`${baseClass} text-2xl`}>{ props.children }</h2>
     case 3:
-      return 'text-xl'
+      return <h3 className={`${baseClass} text-xl`}>{ props.children }</h3>
+    case 4:
+      return <h4 className={`${baseClass} text-lg`}>{ props.children }</h4>
     default:
-      return 'text-lg'
+      return <h5 className={`${baseClass} text-lg`}>{ props.children }</h5>
   }
 }
