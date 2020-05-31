@@ -249,18 +249,18 @@ export default function Home({ entries }) {
                   { formatDate(item.fields.date) }
                 </span>
                 <h2 className="sm:text-2xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
-                  <Link href={`/blog/entry/${ item.fields.slug }`}>
+                  <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
                     <a>{ item.fields.title }</a>
                   </Link>
                 </h2>
                 { item.fields.image &&
-                  <Link href={`/blog/entry/${ item.fields.slug }`}>
+                  <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
                     <a><img src={ item.fields.image } alt={ item.fields.title } className='mb-4' /></a>
                   </Link>
                 }
                 <p className="leading-relaxed mb-8">{ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') }</p>
                 <div className="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
-                  <Link href={`/blog/entry/${ item.fields.slug }`}>
+                  <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
                     <a className="text-blue-500 inline-flex items-center">Learn More
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14"></path>
