@@ -4,8 +4,21 @@ export default function Home({ entries }) {
   return (
     <div>
       <Head>
+        <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport" />
+        <link rel="icon" href="/images/notsobad/favicon.ico" />
         <title>NOT SO BAD</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta content="NOT SO BAD" property="og:title" />
+        <meta content="website" property="og:type" />
+        <meta content="https://notsobad.jp" property="og:url" />
+        <meta content="https://notsobad.jp/images/notsobad/ogp.png" property="og:image" />
+        <meta content="Towards a not so bad world." property="og:description" />
+        <meta content="NOT SO BAD" property="og:site_name" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta content="NOT SO BAD" name="twitter:title" />
+        <meta content="Towards a not so bad world." name="twitter:description" />
+        <meta content="https://notsobad.jp/images/notsobad/ogp.png" name="twitter:image:src" />
+
+        <meta content="Cj5CPp60p_YthkYoq1iWglo8d6yEfapurd-RmBKW0fs" name="google-site-verification" />
       </Head>
 
       <section className="text-gray-700 body-font">
@@ -338,8 +351,6 @@ export default function Home({ entries }) {
           </div>
         </div>
       </footer>
-
-
     </div>
   )
 }

@@ -7,18 +7,25 @@ import { getAllPostSlugs, getPostData, formatDate } from '../../../lib/utilities
 export default function Entry({ entry }) {
   /* markdown内のタグをclass付きで出力する（styled-jsxが適用されないので。。） */
   const renderers = {
-    heading: props => <h class={`font-bold inline-block my-4 md:my-8 ${headingClass(props.level)}`}>{ props.children }</h>,
-    list: props => <ul class='text-left list-disc ml-6'>{props.children}</ul>,
-    listItem: props => <li class='leading-8'>{props.children}</li>,
-    paragraph: props => <p class='my-6'>{ props.children }</p>,
-    link: props => <a href={props.href} target="_blank" class='text-blue-600 underline'>{ props.children }</a>,
+    heading: props => <h className={`font-bold inline-block my-4 md:my-8 ${headingClass(props.level)}`}>{ props.children }</h>,
+    list: props => <ul className='text-left list-disc ml-6'>{props.children}</ul>,
+    listItem: props => <li className='leading-8'>{props.children}</li>,
+    paragraph: props => <p className='my-6'>{ props.children }</p>,
+    link: props => <a href={props.href} target="_blank" className='text-blue-600 underline'>{ props.children }</a>,
   };
 
   return (
     <Layout>
       <Head>
-        <title>NOT SO BADなブログ</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title key="title">{ entry.title }</title>
+        <meta content={ entry.title } property="og:title" key="og:title" />
+        <meta content={ `https://notsobad.jp/blog/${entry.slug}` } property="og:url" key="og:url" />
+        <link rel="canonical" href={ `https://notsobad.jp/blog/${entry.slug}` } />
+        { entry.image && <meta content={ entry.image } property="og:image" key="og:image" /> }
+        { entry.image && <meta content={ entry.image } name="twitter:image:src" key="twitter:image:src" /> }
+        <meta content={ entry.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } property="og:description" key="og:description" />
+        <meta content={ entry.title } name="twitter:title" key="twitter:title" />
+        <meta content={ entry.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } name="twitter:description" key="twitter:description" />
       </Head>
 
       <section className="text-gray-700 body-font overflow-hidden break-all">

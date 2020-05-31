@@ -8,8 +8,7 @@ export default function Index({ entries, page, hasNextPage }) {
   return (
     <Layout>
       <Head>
-        <title>NOT SO BADなブログ</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://notsobad.jp/blog" />
       </Head>
 
       <section className="text-gray-700 body-font overflow-hidden break-all">
