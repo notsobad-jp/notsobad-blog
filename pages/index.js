@@ -9,6 +9,7 @@ export default function Home({ entries }) {
         <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport" />
         <link rel="icon" href="/images/notsobad/favicon.ico" />
         <title>NOT SO BAD</title>
+        <meta name="description" content="Towards a not so bad world." />
         <meta content="NOT SO BAD" property="og:title" />
         <meta content="website" property="og:type" />
         <meta content="https://notsobad.jp" property="og:url" />
@@ -97,14 +98,6 @@ export default function Home({ entries }) {
                 <div className="p-6">
                   <h1 className="title-font text-lg font-bold text-gray-900 mb-3">ブンゴウメール</h1>
                   <p className="leading-relaxed mb-3">ブンゴウメールは、青空文庫の作品を小分けにして毎日メールで送信してくれる読書サポートサービスです。</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a href="https://bungomail.com/" target="_blank" className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -116,14 +109,6 @@ export default function Home({ entries }) {
                 <div className="p-6">
                   <h1 className="title-font text-lg font-bold text-gray-900 mb-3">ブンゴウサーチ</h1>
                   <p className="leading-relaxed mb-3">ブンゴウサーチは、青空文庫の作品を目安の読了時間で検索できるサービスです。</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a href="https://search.bungomail.com/" target="_blank" className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -135,14 +120,6 @@ export default function Home({ entries }) {
                 <div className="p-6">
                   <h1 className="title-font text-lg font-bold text-gray-900 mb-3">THE TIMELINE</h1>
                   <p className="leading-relaxed mb-3">THE TIMELINE(ザ・タイムライン)は、簡単・便利な無料の年表作成サービスです。</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a href="https://the-timeline.jp/" target="_blank" className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -157,14 +134,6 @@ export default function Home({ entries }) {
                 <div className="p-6">
                   <h1 className="title-font text-lg font-bold text-gray-900 mb-3">THE TOURNAMENT</h1>
                   <p className="leading-relaxed mb-3">THE TOURNAMENT(ザ・トーナメント)は、簡単・便利な無料のトーナメント表作成サービスです。</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a href="https://the-tournament.jp/" target="_blank" className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -176,14 +145,6 @@ export default function Home({ entries }) {
                 <div className="p-6">
                   <h1 className="title-font text-lg font-bold text-gray-900 mb-3">Tab Sekki</h1>
                   <p className="leading-relaxed mb-3">TabSekkiは、ブラウザの新しいタブに二十四節気七十二候の現在の暦を表示してくれるChrome拡張機能です。</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a href="https://chrome.google.com/webstore/detail/tab-sekki-%E4%BA%8C%E5%8D%81%E5%9B%9B%E7%AF%80%E6%B0%97%E4%B8%83%E5%8D%81%E4%BA%8C%E5%80%99/hpiplbccmdafmjoompeplcakgghggcfh" target="_blank" className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -195,14 +156,6 @@ export default function Home({ entries }) {
                 <div className="p-6">
                   <h1 className="title-font text-lg font-bold text-gray-900 mb-3">スマホde百人一首</h1>
                   <p className="leading-relaxed mb-3">スマホde百人一首は、みんなのスマホを取り札にして遊べる、お正月にぴったりの百人一首サービスです。</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a href="https://karta.notsobad.jp/" target="_blank" className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -261,7 +214,7 @@ export default function Home({ entries }) {
                 <p className="leading-relaxed mb-8">{ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') }</p>
                 <div className="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
                   <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
-                    <a className="text-blue-500 inline-flex items-center">Learn More
+                    <a className="text-blue-500 inline-flex items-center">続きを読む
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14"></path>
                         <path d="M12 5l7 7-7 7"></path>
