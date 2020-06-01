@@ -41,7 +41,7 @@ export default function Home({ entries }) {
             <a href="#policy" className="mr-5 hover:text-gray-100">Policy</a>
             <a href="#works" className="mr-5 hover:text-gray-100">Works</a>
             <a href="#member" className="mr-5 hover:text-gray-100">Member</a>
-            <a href="#contact" className="mr-5 hover:text-gray-100">Contact</a>
+            <a href="#contact" className="hover:text-gray-100">Contact</a>
           </nav>
         </div>
       </header>
@@ -49,35 +49,35 @@ export default function Home({ entries }) {
       <section id="policy" className="text-gray-700 body-font bg-gray-200">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-            <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col flex-grow text-center items-center">
+            <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex md:flex-col flex-grow text-center items-center">
               <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mb-5 flex-shrink-0">
                 <svg fill="currentColor" stroke="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10" viewBox="0 0 20 20">
                   <path d="M12 10a2 2 0 01-3.41 1.41A2 2 0 0110 8V0a9.97 9.97 0 0110 10h-8zm7.9 1.41A10 10 0 118.59.1v2.03a8 8 0 109.29 9.29h2.02zm-4.07 0a6 6 0 11-7.25-7.25v2.1a3.99 3.99 0 00-1.4 6.57 4 4 0 006.56-1.42h2.1z"/>
                 </svg>
               </div>
-              <div className="flex-grow">
+              <div className="flex-grow text-left md:text-center ml-4 md:ml-0">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">NICHE</h2>
                 <p className="leading-relaxed text-base">Keep focusing on your favourite niche market.</p>
               </div>
             </div>
-            <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col flex-grow text-center items-center">
+            <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex md:flex-col flex-grow text-center items-center">
               <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mb-5 flex-shrink-0">
                 <svg fill="currentColor" stroke="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-18a8 8 0 100 16 4 4 0 110-8 4 4 0 100-8zm0 13a1 1 0 100-2 1 1 0 000 2zm0-8a1 1 0 110-2 1 1 0 010 2z"/>
                 </svg>
               </div>
-              <div className="flex-grow">
+              <div className="flex-grow text-left md:text-center ml-4 md:ml-0">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">UNIQUE</h2>
                 <p className="leading-relaxed text-base">Do what other people never do.</p>
               </div>
             </div>
-            <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col flex-grow text-center items-center">
+            <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex md:flex-col flex-grow text-center items-center">
               <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mb-5 flex-shrink-0">
                 <svg fill="currentColor" stroke="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10" viewBox="0 0 20 20">
                   <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zM6.5 9a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm7 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm2.16 3a6 6 0 01-11.32 0h11.32z"/>
                 </svg>
               </div>
-              <div className="flex-grow">
+              <div className="flex-grow text-left md:text-center ml-4 md:ml-0">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">HUMOUR</h2>
                 <p className="leading-relaxed text-base">Never forget a sense of humour in your life.</p>
               </div>
