@@ -92,7 +92,7 @@ export default function Home({ entries }) {
           <div className="flex flex-wrap -m-4 mb-10">
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-                <a href="https://bungomail.com/" target="_blank">
+                <a href="https://bungomail.com/" target="_blank" rel="noopener">
                   <img className="lg:h-64 md:h-56 w-full object-cover object-center" src="/images/notsobad/products/bungomail.png" alt="bungomail" />
                 </a>
                 <div className="p-6">
@@ -103,7 +103,7 @@ export default function Home({ entries }) {
             </div>
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-                <a href="https://search.bungomail.com/" target="_blank">
+                <a href="https://search.bungomail.com/" target="_blank" rel="noopener">
                   <img className="lg:h-64 md:h-56 w-full object-cover object-center" src="/images/notsobad/products/bungosearch.png" alt="bungosearch" />
                 </a>
                 <div className="p-6">
@@ -114,7 +114,7 @@ export default function Home({ entries }) {
             </div>
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-                <a href="https://the-timeline.jp/" target="_blank">
+                <a href="https://the-timeline.jp/" target="_blank" rel="noopener">
                   <img className="lg:h-64 md:h-56 w-full object-cover object-center" src="/images/notsobad/products/timeline.png" alt="THE TIMELINE" />
                 </a>
                 <div className="p-6">
@@ -128,7 +128,7 @@ export default function Home({ entries }) {
           <div className="flex flex-wrap -m-4 mb-10">
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-                <a href="https://the-tournament.jp/" target="_blank">
+                <a href="https://the-tournament.jp/" target="_blank" rel="noopener">
                   <img className="lg:h-64 md:h-56 w-full object-cover object-center" src="/images/notsobad/products/tournament.png" alt="THE TOURNAMENT" />
                 </a>
                 <div className="p-6">
@@ -139,7 +139,7 @@ export default function Home({ entries }) {
             </div>
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-                <a href="https://chrome.google.com/webstore/detail/tab-sekki-%E4%BA%8C%E5%8D%81%E5%9B%9B%E7%AF%80%E6%B0%97%E4%B8%83%E5%8D%81%E4%BA%8C%E5%80%99/hpiplbccmdafmjoompeplcakgghggcfh" target="_blank">
+                <a href="https://chrome.google.com/webstore/detail/tab-sekki-%E4%BA%8C%E5%8D%81%E5%9B%9B%E7%AF%80%E6%B0%97%E4%B8%83%E5%8D%81%E4%BA%8C%E5%80%99/hpiplbccmdafmjoompeplcakgghggcfh" target="_blank" rel="noopener">
                   <img className="lg:h-64 md:h-56 w-full object-cover object-center" src="/images/notsobad/products/tabsekki.png" alt="tabsekki" />
                 </a>
                 <div className="p-6">
@@ -150,7 +150,7 @@ export default function Home({ entries }) {
             </div>
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-                <a href="https://karta.notsobad.jp/" target="_blank">
+                <a href="https://karta.notsobad.jp/" target="_blank" rel="noopener">
                   <img className="lg:h-64 md:h-56 w-full object-cover object-center" src="/images/notsobad/products/spkarta.png" alt="スマホde百人一首" />
                 </a>
                 <div className="p-6">
@@ -172,12 +172,13 @@ export default function Home({ entries }) {
                 <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="/images/notsobad/profile.png" alt='CEO' />
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-gray-900">Tomomichi Onishi</h2>
-                  <h3 className="text-gray-500 mb-3">CEO / Web Developer</h3>
+                  <h3 className="text-gray-700 mb-3">CEO / Web Developer</h3>
                   <span className="inline-flex">
-                    <a href='https://twitter.com/kame_f_no7' target='_blank' className="ml-2 text-gray-500">
-                      <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
+                    <a href='https://twitter.com/kame_f_no7' target='_blank' className="ml-2 text-gray-700" rel="noopener">
+                      <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5 mr-1 inline-block" viewBox="0 0 24 24">
                         <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                       </svg>
+                      Twitter
                     </a>
                   </span>
                 </div>
@@ -198,7 +199,7 @@ export default function Home({ entries }) {
           <div className="flex flex-wrap -m-12 break-all">
             { entries.items.map((item) => (
               <div className="p-12 md:w-1/3 flex flex-col items-start" key={ item.fields.slug }>
-                <span className="inline-block py-1 px-3 rounded bg-gray-100 text-gray-500 text-sm font-medium tracking-widest">
+                <span className="inline-block py-1 px-3 rounded bg-gray-100 text-gray-700 text-sm font-medium tracking-widest">
                   { formatDate(item.fields.date) }
                 </span>
                 <h2 className="sm:text-2xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
@@ -212,21 +213,11 @@ export default function Home({ entries }) {
                   </Link>
                 }
                 <p className="leading-relaxed mb-8">{ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') }</p>
-                <div className="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
-                  <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
-                    <a className="text-blue-500 inline-flex items-center">続きを読む
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
           <div>
-            <button className="flex mx-auto mt-20 text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-gray-600 rounded text-lg">
+            <button className="flex mx-auto mt-20 text-gray-900 border-solid border-2 border-gray-700 py-2 px-8 focus:outline-none hover:border-gray-500 rounded text-lg">
               <Link href="/blog">
                 <a>ブログTOPへ</a>
               </Link>
@@ -270,15 +261,8 @@ export default function Home({ entries }) {
         <div className="bg-gray-900">
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <p className="text-gray-200 text-sm text-center sm:text-left">
-              <a href="/" className="text-gray-500 hover:text-gray-200 ml-1" target="_blank">© 2020 NOT SO BAD, LLC.</a>
+              <a href="/" className="text-gray-300 hover:text-gray-200 ml-1" target="_blank" rel="noopener">© 2020 NOT SO BAD, LLC.</a>
             </p>
-            <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-              <a href='https://twitter.com/kame_f_no7' target='_blank' className="ml-3 text-gray-500">
-                <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                </svg>
-              </a>
-            </span>
           </div>
         </div>
       </footer>
