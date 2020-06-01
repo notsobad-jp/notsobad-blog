@@ -207,11 +207,6 @@ export default function Home({ entries }) {
                     <a>{ item.fields.title }</a>
                   </Link>
                 </h2>
-                { item.fields.image &&
-                  <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
-                    <a><img src={ item.fields.image } alt={ item.fields.title } className='mb-4' /></a>
-                  </Link>
-                }
                 <p className="leading-relaxed mb-8">{ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') }</p>
               </div>
             ))}
