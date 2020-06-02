@@ -203,9 +203,7 @@ export default function Home({ entries }) {
                   { formatDate(item.fields.date) }
                 </span>
                 <h2 className="sm:text-2xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
-                  <Link href="/entry/[...slug]" as={`/entry/${ item.fields.slug }`}>
-                    <a>{ item.fields.title }</a>
-                  </Link>
+                  <a href={`https://blog.notsobad.jp/entry/${ item.fields.slug }`} target='_blank' rel="noopener">{ item.fields.title }</a>
                 </h2>
                 <p className="leading-relaxed mb-8">{ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') }</p>
               </div>
@@ -213,9 +211,7 @@ export default function Home({ entries }) {
           </div>
           <div>
             <button className="flex mx-auto mt-20 text-gray-900 border-solid border-2 border-gray-700 py-2 px-8 focus:outline-none hover:border-gray-500 rounded text-lg">
-              <Link href="/">
-                <a>ブログTOPへ</a>
-              </Link>
+              <a href='https://blog.notsobad.jp' target='_blank' rel="noopener">ブログTOPへ</a>
             </button>
           </div>
         </div>
@@ -256,7 +252,7 @@ export default function Home({ entries }) {
         <div className="bg-gray-900">
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <p className="text-gray-200 text-sm text-center sm:text-left">
-              <a href="/" className="text-gray-300 hover:text-gray-200 ml-1" target="_blank" rel="noopener">© 2020 NOT SO BAD, LLC.</a>
+              <a href="/" className="text-gray-300 hover:text-gray-200 ml-1">© 2020 NOT SO BAD, LLC.</a>
             </p>
           </div>
         </div>
