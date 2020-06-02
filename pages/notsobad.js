@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { getAllPostSlugs, formatDate } from '../../lib/utilities'
+import { getAllPostSlugs, formatDate } from '../lib/utilities'
 
 export default function Home({ entries }) {
   return (
