@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import Layout from '../../../components/layout'
-import { getAllPostSlugs, getPostData, formatDate } from '../../../lib/utilities'
+import Layout from '../../components/layout'
+import { getAllPostSlugs, getPostData, formatDate } from '../../lib/utilities'
 
 export default function Entry({ entry }) {
   /* markdown内のタグをclass付きで出力する（styled-jsxが適用されないので。。） */
@@ -20,7 +20,7 @@ export default function Entry({ entry }) {
         <title key="title">{ entry.title }</title>
         <meta content={ entry.title } property="og:title" key="og:title" />
         <meta content={ `https://notsobad.jp/blog/${entry.slug}` } property="og:url" key="og:url" />
-        <link rel="canonical" href={ `https://notsobad.jp/blog/${entry.slug}` } />
+        <link rel="canonical" href={ `https://blog.notsobad.jp/${entry.slug}` } />
         { entry.image && <meta content={ entry.image } property="og:image" key="og:image" /> }
         { entry.image && <meta content={ entry.image } name="twitter:image:src" key="twitter:image:src" /> }
         <meta content={ entry.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } property="og:description" key="og:description" />
