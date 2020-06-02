@@ -49,7 +49,7 @@ export default class Rss extends React.Component {
       });
     });
 
-    res.setHeader("Content-Type", "text/xml");
+    res.setHeader("Content-Type", "text/xml; charset=utf-8");
     res.write(feed.atom1());
     res.end();
   }
