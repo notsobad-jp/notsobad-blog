@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = (function(a,b){return {"/":[a,b],"/docs/notsobad":[a],"/entry/[...slug]":[a,b],"/index":[a,b],"/page/[page]":[a,b]}}("static\u002Fchunks\u002F05e7281cb7bcb49fe0351c4466dc8e68b797c2c9.df0200d1732db7c6b1bb.js","static\u002Fchunks\u002Fc1225f9b9453dd52441b6f05b3391648cdc0d2c0.aba4705297cbae0d93ee.js"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
