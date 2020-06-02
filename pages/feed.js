@@ -22,8 +22,8 @@ export default class Rss extends React.Component {
     const feed = new Feed({
       title: "NOT SO BADなブログ",
       description: "ぼっちスタートアップが日々がんばっています。",
-      id: "https://blog.notsobad.jp",
-      link: "https://blog.notsobad.jp",
+      id: "https://blog.notsobad.jp/",
+      link: "https://blog.notsobad.jp/",
       language: "ja", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
       image: "https://blog.notsobad.jp/images/notsobad/ogp.png",
       favicon: "https://blog.notsoabd.jp/images/notsobad/favicon.ico",
@@ -34,15 +34,15 @@ export default class Rss extends React.Component {
       author: {
         name: "ほげにし",
         email: "info@notsobad.jp",
-        link: "https://notsobad.jp"
+        link: "https://notsobad.jp/"
       }
     });
 
     entries.items.forEach(post => {
       feed.addItem({
         title: post.fields.title,
-        id: post.fields.slug,
-        link: post.fields.slug,
+        id: `https://blog.notsobad.jp/entry/${post.fields.slug}`,
+        link: `https://blog.notsobad.jp/entry/${post.fields.slug}`,
         description: post.fields.excerpt,
         date: new Date(post.fields.date),
         image: post.fields.image
