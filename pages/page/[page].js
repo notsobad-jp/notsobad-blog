@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import Layout from '../../../components/layout'
-import { getAllPostSlugs, formatDate } from '../../../lib/utilities'
+import Layout from '../../components/layout'
+import { getAllPostSlugs, formatDate } from '../../lib/utilities'
 
 export default function Index({ entries, page, hasNextPage }) {
   return (
     <Layout>
       <Head>
-        <link rel="canonical" href="https://notsobad.jp/blog" />
+        <link rel="canonical" href="https://blog.notsobad.jp" />
       </Head>
 
       <section className="text-gray-700 body-font overflow-hidden break-all">
@@ -21,12 +21,12 @@ export default function Index({ entries, page, hasNextPage }) {
                 </div>
                 <div className="md:flex-grow">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">
-                    <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
+                    <Link href="/entry/[...slug]" as={`/entry/${ item.fields.slug }`}>
                       <a>{ item.fields.title }</a>
                     </Link>
                   </h2>
                   { item.fields.image &&
-                    <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
+                    <Link href="/entry/[...slug]" as={`/entry/${ item.fields.slug }`}>
                       <a><img src={ item.fields.image } alt={ item.fields.title } className='mb-4' /></a>
                     </Link>
                   }
@@ -34,7 +34,7 @@ export default function Index({ entries, page, hasNextPage }) {
                     <ReactMarkdown source={ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } />
                   </div>
 
-                  <Link href="/blog/entry/[...slug]" as={`/blog/entry/${ item.fields.slug }`}>
+                  <Link href="/entry/[...slug]" as={`/entry/${ item.fields.slug }`}>
                     <a className="text-blue-700 inline-flex items-center mt-4">記事の続きを読む
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14"></path>
@@ -52,12 +52,12 @@ export default function Index({ entries, page, hasNextPage }) {
             <div className="md:flex-grow">
               <div className="inline-block w-1/2 text-left">
                 { page && page > 1 &&
-                  <Link href={ (page == 2) ? '/blog' : '/blog/page/[page]' } as={ (page == 2) ? '/blog' : `/blog/page/${page - 1}`}><a>前のページ</a></Link>
+                  <Link href={ (page == 2) ? '/' : '/page/[page]' } as={ (page == 2) ? '/' : `/page/${page - 1}`}><a>前のページ</a></Link>
                 }
               </div>
               <div className="inline-block w-1/2 text-right">
                 { hasNextPage &&
-                  <Link href='/blog/page/[page]' as={`/blog/page/${page + 1}`}><a>次のページ</a></Link>
+                  <Link href='/page/[page]' as={`/page/${page + 1}`}><a>次のページ</a></Link>
                 }
               </div>
             </div>
