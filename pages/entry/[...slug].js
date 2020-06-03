@@ -37,6 +37,13 @@ export default function Entry({ entry }) {
               </div>
               <div className="flex-grow">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 title-font mb-4">{ entry.title }</h2>
+                { entry.tag &&
+                  <div className='mb-4'>
+                    { entry.tag.map(tag => (
+                      <span class='bg-gray-200 px-2 py-1 mr-2 text-sm rounded-md'>{ tag }</span>
+                    )) }
+                  </div>
+                }
                 { entry.image &&
                   <img src={ entry.image } alt={ entry.title } className='mb-4' />
                 }

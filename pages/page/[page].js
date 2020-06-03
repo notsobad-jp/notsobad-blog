@@ -25,6 +25,13 @@ export default function Index({ entries, page, hasNextPage }) {
                       <a>{ item.fields.title }</a>
                     </Link>
                   </h2>
+                  { item.fields.tag &&
+                    <div className='mb-4'>
+                      { item.fields.tag.map(tag => (
+                        <span class='bg-gray-200 px-2 py-1 mr-2 text-sm rounded-md'>{ tag }</span>
+                      )) }
+                    </div>
+                  }
                   { item.fields.image &&
                     <Link href="/entry/[...slug]" as={`/entry/${ item.fields.slug }`}>
                       <a><img src={ item.fields.image } alt={ item.fields.title } className='mb-4' /></a>
