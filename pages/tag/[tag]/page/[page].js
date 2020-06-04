@@ -3,7 +3,7 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../../../../components/layout'
 import List from '../../../../components/list'
-import { getAllTags, formatDate } from '../../../../lib/utilities'
+import { getAllPostSlugs, getAllTags, formatDate } from '../../../../lib/utilities'
 
 export default function Index({ entries, page, hasNextPage, tag }) {
   return (
@@ -21,19 +21,28 @@ export default function Index({ entries, page, hasNextPage, tag }) {
 const perPage = 10;
 
 export async function getStaticPaths() {
-  const tags = await getAllTags();
-  // const posts = await getAllPostSlugs();
+  const posts = await getAllPostSlugs();
 
-  /* FIXME */
-  let paths = [];
-  tags.map((tag) => (
-    paths.push({
-      params: {
-        page: '2',
-        tag: tag
-      }
+  let tagCounts = {};
+  posts.forEach(post => {
+    post.params.tag.forEach(tag => {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
     })
-  ));
+  })
+  const pagingTags = tags.filter(tag => tagCounts[tag] > perPage);
+
+  let paths = [];
+  pagingTags.forEach(tag => {
+    const pageCount = Math.ceil(tagCounts[tag]/perPage);
+    for(let i = 2; i <= pageCount; i++) {
+      paths.push({
+        params: {
+          tag: tag,
+          page: String(i)
+        }
+      });
+    }
+  });
 
   return {
     paths,

@@ -53,18 +53,26 @@ export default function List({ entries, page, hasNextPage }) {
           <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"></div>
           <div className="md:flex-grow">
             <div className="inline-block w-1/2 text-left">
-              { page && page > 1 &&
-                <Link href={ (page == 2) ? '/' : '/page/[page]' } as={ (page == 2) ? '/' : `/page/${page - 1}`}><a>前のページ</a></Link>
-              }
+              { prevPageLink(page) }
             </div>
             <div className="inline-block w-1/2 text-right">
-              { hasNextPage &&
-                <Link href='/page/[page]' as={`/page/${page + 1}`}><a>次のページ</a></Link>
-              }
+              { nextPageLink(page, hasNextPage) }
             </div>
           </div>
         </div>
       </div>
     </section>
   )
+}
+
+function prevPageLink(page) {
+  if(page && page > 1) {
+    return <Link href={ (page == 2) ? '/' : '/page/[page]' } as={ (page == 2) ? '/' : `/page/${page - 1}`}><a>前のページ</a></Link>
+  }
+}
+
+function nextPageLink(page, hasNextPage) {
+  if(hasNextPage) {
+    return <Link href='/page/[page]' as={`/page/${page + 1}`}><a>次のページ</a></Link>
+  }
 }
