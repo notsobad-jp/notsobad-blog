@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import { getAllPostSlugs, formatDate } from '../lib/utilities'
+import { formatDate } from '../lib/utilities'
 
 export default function List({ entries, page, hasNextPage, tag }) {
   return (

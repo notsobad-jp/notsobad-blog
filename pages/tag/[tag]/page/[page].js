@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
 import Layout from '../../../../components/layout'
 import List from '../../../../components/list'
-import { getAllPostSlugs, getAllTags, formatDate } from '../../../../lib/utilities'
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import { getAllPostSlugs } from '../../../../lib/utilities'
 
 export default function Index({ entries, page, hasNextPage, tag }) {
   return (
     <Layout>
       <Head>
-        <link rel="canonical" href="https://blog.notsobad.jp" />
+        <link rel="canonical" href={ `https://blog.notsobad.jp/tag/${ tag }`} />
       </Head>
 
       <List entries={ entries } page={ page } hasNextPage={ hasNextPage } tag={ tag } />
