@@ -2,10 +2,19 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import { getAllPostSlugs, formatDate } from '../lib/utilities'
 
-export default function List({ entries, page, hasNextPage }) {
+export default function List({ entries, page, hasNextPage, tag }) {
   return (
     <section className="text-gray-700 body-font overflow-hidden break-all">
       <div className="container px-5 md:px-24 pb-24 mx-auto max-w-screen-lg">
+        { tag &&
+          <div className='border-t-2 border-b-2 py-4 mb-6'>
+            <Link href="/">
+              <a className="text-blue-500">トップ</a>
+            </Link>
+            <span className="px-2">＞</span>
+            <span>{ tag }</span>
+          </div>
+        }
         <div className="-my-8">
           { entries.items.map((item) => (
             <div className="py-12 flex flex-wrap md:flex-no-wrap" key={ item.sys.id }>
@@ -53,10 +62,10 @@ export default function List({ entries, page, hasNextPage }) {
           <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col"></div>
           <div className="md:flex-grow">
             <div className="inline-block w-1/2 text-left">
-              { prevPageLink(page) }
+              { prevPageLink(page, tag) }
             </div>
             <div className="inline-block w-1/2 text-right">
-              { nextPageLink(page, hasNextPage) }
+              { nextPageLink(page, hasNextPage, tag) }
             </div>
           </div>
         </div>
@@ -65,14 +74,18 @@ export default function List({ entries, page, hasNextPage }) {
   )
 }
 
-function prevPageLink(page) {
+function prevPageLink(page, tag) {
   if(page && page > 1) {
-    return <Link href={ (page == 2) ? '/' : '/page/[page]' } as={ (page == 2) ? '/' : `/page/${page - 1}`}><a>前のページ</a></Link>
+    const href = `${ tag ? '/tag/[tag]' : '' }${ (page == 2) ? '/' : '/page/[page]' }`;
+    const path = `${ tag ? '/tag/' + tag : '' }${ (page == 2) ? '/' : '/page/' + (page - 1) }`;
+    return <Link href={ href } as={ path }><a>前のページ</a></Link>
   }
 }
 
-function nextPageLink(page, hasNextPage) {
+function nextPageLink(page, hasNextPage, tag) {
   if(hasNextPage) {
-    return <Link href='/page/[page]' as={`/page/${page + 1}`}><a>次のページ</a></Link>
+    const href = `${ tag ? '/tag/[tag]' : '' }/page/[page]`;
+    const path = `${ tag ? '/tag/' + tag : '' }/page/${page + 1}`;
+    return <Link href={ href } as={ path }><a>次のページ</a></Link>
   }
 }

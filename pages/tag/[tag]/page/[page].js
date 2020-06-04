@@ -29,7 +29,7 @@ export async function getStaticPaths() {
       tagCounts[tag] = (tagCounts[tag] || 0) + 1;
     })
   })
-  const pagingTags = tags.filter(tag => tagCounts[tag] > perPage);
+  const pagingTags = Object.keys(tagCounts).filter(tag => tagCounts[tag] > perPage);
 
   let paths = [];
   pagingTags.forEach(tag => {
