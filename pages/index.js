@@ -1,5 +1,5 @@
-import { getStaticProps } from './page/[page]'
-import Index from './page/[page]'
+import { getStaticProps } from './tag/[tag]/page/[page]'
+import Index from './tag/[tag]/page/[page]'
 
 export { getStaticProps }
 export default Index

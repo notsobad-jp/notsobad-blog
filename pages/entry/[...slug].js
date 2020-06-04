@@ -40,7 +40,9 @@ export default function Entry({ entry }) {
                 { entry.tag &&
                   <div className='mb-4'>
                     { entry.tag.map(tag => (
-                      <span class='bg-gray-200 px-2 py-1 mr-2 text-sm rounded-md'>{ tag }</span>
+                      <Link href="/tag/[tag]" as={`/tag/${ tag }`}>
+                        <a><span class='bg-gray-200 px-2 py-1 mr-2 text-sm rounded-md'>{ tag }</span></a>
+                      </Link>
                     )) }
                   </div>
                 }
