@@ -50,7 +50,7 @@ export default function Entry({ entry }) {
                   <img src={ entry.image } alt={ entry.title } className='mb-4' />
                 }
                 <div id='mainText' className="leading-relaxed">
-                  <ReactMarkdown source={ entry.content.replace(/!\[f:id:o_tomomichi.*?\)/, '') } renderers={ renderers } />
+                  <ReactMarkdown source={ entry.content.replace(/!\[f:id:o_tomomichi.*?\)/, '') } renderers={ renderers } escapeHtml={ false } />
                 </div>
               </div>
             </div>
