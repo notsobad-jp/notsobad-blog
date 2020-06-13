@@ -42,7 +42,7 @@ export default function List({ entries, page, hasNextPage, tag }) {
                   </Link>
                 }
                 <div className="leading-relaxed">
-                  <ReactMarkdown source={ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } />
+                  <ReactMarkdown source={ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') } escapeHtml={ false } />
                 </div>
 
                 <Link href="/entry/[...slug]" as={`/entry/${ item.fields.slug }`}>
