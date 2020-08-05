@@ -10,8 +10,9 @@ export default function Entry({ entry }) {
     heading: props => renderHeading(props),
     list: props => <ul className='text-left list-disc ml-6'>{props.children}</ul>,
     listItem: props => <li className='leading-8'>{props.children}</li>,
-    paragraph: props => <p className='my-6'>{ props.children }</p>,
+    paragraph: props => <p className='mt-4 mb-8'>{ props.children }</p>,
     link: props => <a href={props.href} target="_blank" className='text-blue-600 underline'>{ props.children }</a>,
+    thematicBreak: props => <hr className='my-8' />,
   };
 
   return (
@@ -80,7 +81,7 @@ export async function getStaticProps({params}) {
 }
 
 function renderHeading(props) {
-  const baseClass = "font-bold inline-block my-4 md:my-8";
+  const baseClass = "font-bold inline-block mb-2 mt-8 md:mt-8";
   switch (props.level) {
     case 1:
       return <h1 className={`${baseClass} text-3xl`}>{ props.children }</h1>
