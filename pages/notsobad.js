@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { getAllPostSlugs, formatDate } from '../lib/utilities'
 
-export default function Home({ entries }) {
+export default function Home() {
   return (
     <div>
       <Head>
@@ -47,7 +46,12 @@ export default function Home({ entries }) {
       </header>
 
       <section id="policy" className="text-gray-700 body-font bg-gray-200">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 pt-20 pb-24 mx-auto">
+          <div className="text-center mb-12">
+            ニッチだけどユニークで遊び心のあるプロダクトを提供して、
+            <br />
+            世界を「そんなに悪くない」感じにしていきたいと思っています。
+          </div>
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex md:flex-col flex-grow text-center items-center">
               <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mb-5 flex-shrink-0">
@@ -89,6 +93,13 @@ export default function Home({ entries }) {
 
       <section id="works" className="text-gray-700 body-font">
         <div className="container px-5 py-24 mx-auto">
+          <div className="text-center mb-12">
+            本や読書に関するサービスを中心に、様々なプロダクトを自社で企画・開発しています。
+            <br />
+            またこのような新規事業の立ち上げを受託でお手伝いすることも可能です。
+            <br />
+            弊社のプロダクトが好みに合いそうな方は、ぜひお気軽にご連絡ください。
+          </div>
           <div className="flex flex-wrap -m-4 mb-10">
             <div className="p-4 md:w-1/3">
               <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
@@ -188,36 +199,7 @@ export default function Home({ entries }) {
         </div>
       </section>
 
-      <section className="text-gray-700 body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="text-center mb-20">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Blog</h1>
-            <div className="flex mt-6 justify-center">
-              <div className="w-16 h-1 rounded-full bg-gray-500 inline-flex"></div>
-            </div>
-          </div>
-          <div className="flex flex-wrap -m-12 break-all">
-            { entries.items.map((item) => (
-              <div className="p-12 md:w-1/3 flex flex-col items-start" key={ item.fields.slug }>
-                <span className="inline-block py-1 px-3 rounded bg-gray-100 text-gray-700 text-sm font-medium tracking-widest">
-                  { formatDate(item.fields.date) }
-                </span>
-                <h2 className="sm:text-2xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
-                  <a href={`https://blog.notsobad.jp/entry/${ item.fields.slug }`} target='_blank' rel="noopener">{ item.fields.title }</a>
-                </h2>
-                <p className="leading-relaxed mb-8">{ item.fields.excerpt.replace(/!\[f:id:o_tomomichi.*?\)/, '') }</p>
-              </div>
-            ))}
-          </div>
-          <div>
-            <button className="flex mx-auto mt-20 text-gray-900 border-solid border-2 border-gray-700 py-2 px-8 focus:outline-none hover:border-gray-500 rounded text-lg">
-              <a href='https://blog.notsobad.jp' target='_blank' rel="noopener">ブログTOPへ</a>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="text-gray-700 body-font bg-gray-200">
+      <section id="contact" className="text-gray-700 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-2/3 w-full mx-auto overflow-auto">
             <table className="table-auto w-full text-left whitespace-no-wrap">
@@ -259,29 +241,4 @@ export default function Home({ entries }) {
       </footer>
     </div>
   )
-}
-
-
-export async function getStaticProps({params}) {
-  const client = require('contentful').createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-  })
-
-  const entries = await client.getEntries({
-     content_type: 'post',
-     order: '-fields.date',
-     skip: 0,
-     limit: 3,
-   })
-  .then(function (entries) {
-    const items = entries.items;
-    return { items }
-  })
-
-  return {
-    props: {
-      entries,
-    },
-  }
 }
